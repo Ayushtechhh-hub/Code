@@ -3,10 +3,10 @@
 WVTR-Based Diffusion Coefficient Estimation for Multilayer Coatings
 
 Overview
-This document presents a Python-based analytical framework for estimating effective diffusion coefficients of biopolymer and biopolymer –PLA multilayer coating systems using linear regression of experimentally measured WVTR data. The methodology is suitable for thesis-level research and continuum-scale transport modelling.
+This document presents a Python-based analytical framework for estimating effective diffusion coefficients of biopolymer1 and biopolymer1 –PLA multilayer coating systems using linear regression of experimentally measured WVTR data. The methodology is suitable for thesis-level research and continuum-scale transport modelling.
 
 Objective
-The objectives are to quantify moisture diffusion coefficients for biopolymer coatings at different coating builds, extract the permeable diffusion coefficient of PLA, compare results with an impermeable PLA limit, and visualize WVTR–thickness trends.
+The objectives are to quantify moisture diffusion coefficients for biopolymer1 coatings at different coating builds, extract the permeable diffusion coefficient of PLA, compare results with an impermeable PLA limit, and visualize WVTR–thickness trends.
 
 Physical Constants
 Mw = 18.01528 g/mol (molecular weight of water)
