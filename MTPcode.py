@@ -13,22 +13,21 @@ D_PLA_imperm = 1e-15   # impermeable PLA (m^2/s)
 
 # =================================================
 # Experimental data
-# Thickness: g/m^2 → µm (ρ = 1 kg/m^3)
 # =================================================
 
-# 1× Shellac
+# 1× Biopolymer-1
 H_1x = np.array([57, 60, 62]) * 1e-6
 WVTR_1x = np.array([3363, 2232, 1922])
 
-# 2× Shellac
+# 2× Biopolymer-1
 H_2x = np.array([72, 74, 79]) * 1e-6
 WVTR_2x = np.array([2395, 1673, 1513])
 
-# 3× Shellac
+# 3× Biopolymer-1
 H_3x = np.array([73, 76, 79]) * 1e-6
 WVTR_3x = np.array([2177, 1739, 1470])
 
-# 4× Shellac + PLA
+# 4× Biopolymer-1 + PLA
 H_PLA = np.array([64, 79, 81, 83]) * 1e-6
 WVTR_PLA = np.array([1880, 452, 414, 212])
 
@@ -56,9 +55,9 @@ D_PLA_perm = extract_D(sP)
 # Print results (Results section ready)
 # =================================================
 print("Extracted diffusion coefficients (linear regression):")
-print(f"Shellac Ds (1×) = {Ds_1x:.2e} m²/s")
-print(f"Shellac Ds (2×) = {Ds_2x:.2e} m²/s")
-print(f"Shellac Ds (3×) = {Ds_3x:.2e} m²/s")
+print(f"Biopolymer-1 Ds (1×) = {Ds_1x:.2e} m²/s")
+print(f"Biopolymer-1 Ds (2×) = {Ds_2x:.2e} m²/s")
+print(f"Biopolymer-1 Ds (3×) = {Ds_3x:.2e} m²/s")
 print(f"PLA Ds (permeable) = {D_PLA_perm:.2e} m²/s")
 print(f"PLA Ds (impermeable) = {D_PLA_imperm:.2e} m²/s")
 
@@ -83,18 +82,18 @@ fig, axs = plt.subplots(2, 2, figsize=(14, 10))
 
 axs[0,0].scatter(H_1x*1e6, WVTR_1x, color="orange")
 axs[0,0].plot(Hfit_1*1e6, WVTR_fit_1, '--', color="orange")
-axs[0,0].set_title(f"1× Shellac (R² = {r1:.2f})")
+axs[0,0].set_title(f"1× Biopolymer-1 (R² = {r1:.2f})")
 axs[0,0].set_ylabel("WVTR (g/m²·day)")
 axs[0,0].grid(True)
 
 axs[0,1].scatter(H_2x*1e6, WVTR_2x, color="blue")
 axs[0,1].plot(Hfit_2*1e6, WVTR_fit_2, '--', color="blue")
-axs[0,1].set_title(f"2× Shellac (R² = {r2:.2f})")
+axs[0,1].set_title(f"2× Biopolymer-1 (R² = {r2:.2f})")
 axs[0,1].grid(True)
 
 axs[1,0].scatter(H_3x*1e6, WVTR_3x, color="green")
 axs[1,0].plot(Hfit_3*1e6, WVTR_fit_3, '--', color="green")
-axs[1,0].set_title(f"3× Shellac (R² = {r3:.2f})")
+axs[1,0].set_title(f"3× Biopolymer-1 (R² = {r3:.2f})")
 axs[1,0].set_xlabel("Thickness (µm)")
 axs[1,0].set_ylabel("WVTR (g/m²·day)")
 axs[1,0].grid(True)
@@ -102,7 +101,7 @@ axs[1,0].grid(True)
 axs[1,1].scatter(H_PLA*1e6, WVTR_PLA, color="red", label="Measured")
 axs[1,1].plot(Hfit_P*1e6, WVTR_PLA_perm, '--', color="red", label="PLA permeable")
 axs[1,1].plot(Hfit_P*1e6, WVTR_PLA_imperm, ':', color="black", label="PLA impermeable")
-axs[1,1].set_title(f"4× Shellac + PLA (R² = {rP:.2f})")
+axs[1,1].set_title(f"4× Biopolymer-1 + PLA (R² = {rP:.2f})")
 axs[1,1].set_xlabel("Thickness (µm)")
 axs[1,1].legend()
 axs[1,1].grid(True)
@@ -116,16 +115,16 @@ plt.show()
 # =================================================
 plt.figure(figsize=(10,7))
 
-plt.scatter(H_1x*1e6, WVTR_1x, color="orange", label="1× Shellac")
+plt.scatter(H_1x*1e6, WVTR_1x, color="orange", label="1× Biopolymer-1")
 plt.plot(Hfit_1*1e6, WVTR_fit_1, '--', color="orange")
 
-plt.scatter(H_2x*1e6, WVTR_2x, color="blue", label="2× Shellac")
+plt.scatter(H_2x*1e6, WVTR_2x, color="blue", label="2× Biopolymer-1")
 plt.plot(Hfit_2*1e6, WVTR_fit_2, '--', color="blue")
 
-plt.scatter(H_3x*1e6, WVTR_3x, color="green", label="3× Shellac")
+plt.scatter(H_3x*1e6, WVTR_3x, color="green", label="3× Biopolymer-1")
 plt.plot(Hfit_3*1e6, WVTR_fit_3, '--', color="green")
 
-plt.scatter(H_PLA*1e6, WVTR_PLA, color="red", label="4× Shellac + PLA")
+plt.scatter(H_PLA*1e6, WVTR_PLA, color="red", label="4× Biopolymer-1 + PLA")
 plt.plot(Hfit_P*1e6, WVTR_PLA_perm, '--', color="red", label="PLA permeable")
 plt.plot(Hfit_P*1e6, WVTR_PLA_imperm, ':', color="black", label="PLA impermeable")
 
